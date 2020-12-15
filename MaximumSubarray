@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int max_sum = 0;
+        int ptr1;
+        int ptr2;
+        int size = nums.size();
+        int sum = nums[0];
+        ptr1=nums[0];
+        if(size >1) {
+             max_sum=nums[0];
+        } else {
+            return nums[0];
+        }
+       
+  
+   for (int i = 1; i<size;i++) 
+   { 
+       cout<<"here";
+        sum = max(nums[i], sum+nums[i]); 
+        max_sum = max(max_sum, sum); 
+   } 
+        return max_sum;
+        
+    }
+};
