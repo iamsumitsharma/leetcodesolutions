@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        map<string, vector<string>> m;
+        vector<vector<string>> v;
+        for(int i=0;i<strs.size();i++) {
+            string local = strs[i];
+            sort(strs[i].begin(), strs[i].end());
+           // m[strs[i]]+=1;
+              vector<string> localData;
+            if(m.find(strs[i]) == m.end())  {
+               localData.push_back(local);
+                m[strs[i]] = localData;
+            } else {
+                  localData = m[strs[i]];
+                  localData.push_back(local);
+                 m[strs[i]] = localData;
+        
+            }
+        }
+        vector<vector<string>> data;
+        
+        for(auto it=m.begin();it!=m.end();it++){
+           data.push_back(it->second);
+        }
+          
+        return data;
+    }
+};
